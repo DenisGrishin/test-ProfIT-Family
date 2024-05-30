@@ -4864,7 +4864,8 @@
             t.classList.remove("_show"),
               document.querySelector("body").classList.remove("lock"),
               e.forEach((e) => {
-                e.nextElementSibling.classList.remove("_show");
+                e.nextElementSibling.classList.remove("_show"),
+                  e.children[0].classList.remove("_show");
               });
           });
     }
