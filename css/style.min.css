@@ -1499,6 +1499,9 @@ blockquote {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-column-gap: 30px;
+  -moz-column-gap: 30px;
+  column-gap: 30px;
 }
 .page__bottom {
   display: -webkit-box;
