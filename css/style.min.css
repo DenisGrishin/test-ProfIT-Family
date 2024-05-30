@@ -2,18 +2,18 @@
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:regular,italic,700,700italic);
 @font-face {
   font-family: 'TT Norms Pro';
-  src: url(TTNormsPro-Regular.woff2);
+  src: url(463b9c96fefe5cefd8d9.woff2);
   font-weight: 400;
 }
 @font-face {
   font-family: 'TT Norms Pro';
-  src: url(TTNormsPro-Bold.woff2);
+  src: url(a76053e8fa0edaac22e2.woff2);
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: 'TT Norms Pro';
-  src: url(TTNormsPro-Medium.woff2);
+  src: url(258cc526d378b9f0bc2b.woff2);
   font-weight: 500;
   font-style: normal;
 }
@@ -437,6 +437,7 @@ body {
   background-color: #2d2d44;
 }
 .header__container {
+  border-color: rgba(41, 40, 40, 0);
   min-height: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3115,6 +3116,9 @@ blockquote {
   }
   .dropdown__header {
     font-size: 14px;
+  }
+  .dropdown__wrapper-body {
+    top: 54px;
   }
   .dropdown__close span {
     display: inline-block;

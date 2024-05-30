@@ -453,6 +453,7 @@ body {
   background-color: #2d2d44;
 }
 .header__container {
+  border-color: rgba(41, 40, 40, 0);
   min-height: 60px;
   display: flex;
   align-items: center;
@@ -699,6 +700,11 @@ body {
   top: 57px;
   left: 0;
   background-color: #414157;
+}
+@media (max-width: 63.99875em) {
+  .dropdown__wrapper-body {
+    top: 54px;
+  }
 }
 @media (max-width: 47.99875em) {
   .dropdown__wrapper-body {

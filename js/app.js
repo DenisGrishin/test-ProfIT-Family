@@ -4797,7 +4797,7 @@
               autoHeight: !0,
               slidesPerView: "8",
               navigation: {
-                nextEl: ".slider-th__",
+                nextEl: ".slider-th__next",
                 prevEl: ".slider-th__prev",
               },
               on: {},
@@ -4831,17 +4831,44 @@
       use_native: !0,
     });
     let he = !1;
-    setTimeout(() => {
-      if (he) {
-        let e = new Event("windowScroll");
-        window.addEventListener("scroll", function (t) {
-          document.dispatchEvent(e);
-        });
-      }
-    }, 0);
-    const fe = document.querySelectorAll(".dropdown__header"),
-      ge = document.querySelector(".dropdown__close");
-    function ve(e) {
+    if (
+      (setTimeout(() => {
+        if (he) {
+          let e = new Event("windowScroll");
+          window.addEventListener("scroll", function (t) {
+            document.dispatchEvent(e);
+          });
+        }
+      }, 0),
+      window.matchMedia("(max-width: 767.98px)").matches)
+    ) {
+      const e = document.querySelectorAll(".dropdown__header"),
+        t = document.querySelector(".dropdown__close");
+      0 !== e.length &&
+        e.forEach((s) => {
+          s.addEventListener("click", function (i) {
+            i.target.closest("._show") ||
+              (e.forEach((e) => {
+                e.nextElementSibling.classList.remove("_show"),
+                  e.children[0].classList.remove("_show"),
+                  document.querySelector("body").classList.remove("lock");
+              }),
+              t.classList.add("_show"),
+              s.nextElementSibling.classList.add("_show"),
+              s.children[0].classList.add("_show"),
+              document.querySelector("body").classList.add("lock"));
+          });
+        }),
+        t &&
+          t.addEventListener("click", function (s) {
+            t.classList.remove("_show"),
+              document.querySelector("body").classList.remove("lock"),
+              e.forEach((e) => {
+                e.nextElementSibling.classList.remove("_show");
+              });
+          });
+    }
+    function fe(e) {
       let t = e.querySelector(".video__link"),
         s = e.querySelector(".video__media"),
         i = e.querySelector(".video__button"),
@@ -4876,40 +4903,17 @@
         t.removeAttribute("href"),
         e.classList.add("video--enabled");
     }
-    0 !== fe.length &&
-      fe.forEach((e) => {
-        e.addEventListener("click", function (t) {
-          t.target.closest("._show") ||
-            (fe.forEach((e) => {
-              e.nextElementSibling.classList.remove("_show"),
-                e.children[0].classList.remove("_show"),
-                document.querySelector("body").classList.remove("lock");
-            }),
-            ge.classList.add("_show"),
-            e.nextElementSibling.classList.add("_show"),
-            e.children[0].classList.add("_show"),
-            document.querySelector("body").classList.add("lock"));
-        });
-      }),
-      ge &&
-        ge.addEventListener("click", function (e) {
-          ge.classList.remove("_show"),
-            document.querySelector("body").classList.remove("lock"),
-            fe.forEach((e) => {
-              e.nextElementSibling.classList.remove("_show");
-            });
+    document.querySelector(".info-item__favorite") &&
+      document
+        .querySelector(".info-item__favorite")
+        .addEventListener("click", () => {
+          document
+            .querySelector(".info-item__favorite")
+            .classList.toggle("_active");
         }),
-      document.querySelector(".info-item__favorite") &&
-        document
-          .querySelector(".info-item__favorite")
-          .addEventListener("click", () => {
-            document
-              .querySelector(".info-item__favorite")
-              .classList.toggle("_active");
-          }),
       (function () {
         let e = document.querySelectorAll(".video");
-        for (let t = 0; t < e.length; t++) ve(e[t]);
+        for (let t = 0; t < e.length; t++) fe(e[t]);
       })(),
       (window.FLS = !0),
       (function (e) {
